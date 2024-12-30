@@ -1,12 +1,11 @@
 import csv
 import os
 
-# Mapping for types to Ledger accounts (can be customized)
 def map_account(type, tags, account):
     if type == "Expense":
         return f"Expenses:{tags}" if tags else "Expenses:Miscellaneous"
     elif type == "Refund":
-        return f"Income:Refunds:{tags}" if tags else "Income:Refunds"
+        return f"Assets:{account}" if account else "Income:Refunds"
     elif type == "Settlement":
         return "Liabilities:Settlements"
     elif type == "Loan":
@@ -34,11 +33,11 @@ def convert_csv_to_ledger(input_csv):
             memo = row["Memo"].strip()
 
             debit_account = map_account(type, tags, account)
-            credit_account = f"Assets:{account}" if amount.startswith("-") else "Income:Unknown"
+            credit_account = f"Assets:{account}" if amount.startswith("-") else f"Assets:{account}"
 
             ledgerfile.write(f"{date} * {description}\n")
-            ledgerfile.write(f"    {debit_account:<30} {amount} {currency}\n")
-            ledgerfile.write(f"    {credit_account}\n")
+            ledgerfile.write(f"    {debit_account:<30} {float(amount):.2f} {currency}\n")
+            ledgerfile.write(f"    {credit_account}  {float(amount):.2f} {currency}\n")
 
             if memo:
                 ledgerfile.write(f"    ; Memo: {memo}\n")
