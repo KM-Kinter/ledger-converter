@@ -5,7 +5,7 @@ def map_account(type, tags, account):
     if type == "Expense":
         return f"Expenses:{tags}" if tags else "Expenses:Miscellaneous"
     elif type == "Refund":
-        return f"Income: Refund{account}" if account else "Income:Refunds"
+        return f"Income: Refund {account}" if account else "Income:Refunds"
     elif type == "Settlement":
         return "Liabilities:Settlements"
     elif type == "Loan":
