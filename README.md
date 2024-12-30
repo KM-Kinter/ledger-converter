@@ -1,2 +1,2 @@
 # ledger-converter
-Converter form .csv format to .ledger file for use with Ledger CLI
+Converter from .csv format to .ledger file to use with Ledger CLI
