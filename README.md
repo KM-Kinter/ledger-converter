@@ -4,6 +4,7 @@ Converter from .csv format file to .ledger file to use with Ledger CLI
 ## Usage: 
 
 1. Enter path to yours .csv format file:
+   
 **Attention!** Do not enter path like `~/Downloads/something.csv` instead of this use:
 
 MacOS: `/Users/user/Downloads/something.csv`
