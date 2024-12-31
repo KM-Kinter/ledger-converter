@@ -16,7 +16,7 @@ Windows: `C:\\Users\\User\\Downloads\\something.csv`
 
 In function `def convert_csv_to_ledger(input_csv)`: `output_ledger = os.path.join(output_dir, "transactions.ledger")`
 
-On the end of file: `output_dir = input("Enter the directory to save the Ledger file: ").strip()`
+At the end of file: `output_dir = input("Enter the directory to save the Ledger file: ").strip()`
 
 
 ### Notes: 
